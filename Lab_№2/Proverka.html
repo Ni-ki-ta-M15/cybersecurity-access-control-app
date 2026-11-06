@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Мій розклад</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-image: radial-gradient(circle at 50% -20.71%, #d7c35d 0, #deba54 8.33%, #e4b04d 16.67%, #e9a546 25%, #ed9841 33.33%, #f0893e 41.67%, #f2793c 50%, #f3673d 58.33%, #f35542 66.67%, #f34249 75%, #f22b52 83.33%, #f0065d 91.67%, #ec0069 100%);
+        }
+        .container {
+            text-align: center;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            border-radius: 25px;
+            background-image: linear-gradient(to right,rgba(255, 182, 193, 0.8) , rgba(166, 101, 255, 0.6));
+        }
+        .container:hover {
+            transform: scale(1.05);
+            background-image: radial-gradient(circle at 50% -20.71%, #ff57d2 0, #ff4edb 12.5%, #f046e3 25%, #d63feb 37.5%, #b53cf2 50%, #8c3df9 62.5%, #4f40ff 75%, #0046ff 87.5%, #004bff 100%);
+            color: white;
+        }
+        #currentLesson, #timeLeft {
+            margin-bottom: 20px;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Мій розклад</h1>
+        <div id="currentLesson"></div>
+        <div id="timeLeft"></div>
+    </div>
+
+    <script>
+        // Ваш розклад для першого тижня
+        var schedule1 = {
+            "Пнд": [
+                { start: '8:00', end: '9:35', class: 'P Технології программування' },
+                { start: '9:50', end: '11:25', class: 'P Технології программування' }
+            ],
+            "Втр": [
+                { start: '8:00', end: '9:35', class: 'L Моніторинг і тестування систем кібербезпеки' },
+                { start: '9:50', end: '11:25', class: 'L Філософія' },
+                { start: '11:40', end: '13:15', class: 'P Безпека мобільних додатків' }
+            ],
+            "Срд": [
+                { start: '9:50', end: '11:25', class: 'P Філософія' },
+                { start: '11:40', end: '13:15', class: 'L Сигнали та процеси в СЗІ' },
+                { start: '13:30', end: '15:05', class: 'L Технології програмування' }
+            ],
+            "Чтв": [
+                { start: '11:40', end: '13:15', class: 'L Основи мережевих технології' },
+                { start: '13:30', end: '15:05', class: 'L Безпека мобільних додатків' }
+            ],
+            "Птн": [
+                { start: '8:00', end: '9:10', class: 'P Безпека мобільних додатків' },
+                { start: '8:50', end: '11:25', class: 'P Основи мережевих технології' },
+                { start: '11:40', end: '13:30', class: 'P Основи мережевих технології' }
+            ]
+        };
+
+        // Ваш розклад для другого тижня
+        var schedule2 = {
+            "Пнд": [
+                { start: '8:30', end: '9:35', class: 'P Сигнали та процеси в СЗІ' },
+                { start: '9:50', end: '11:25', class: 'P Сигнали та процеси в СЗІ' }
+            ],
+            "Втр": [
+                { start: '8:30', end: '9:35', class: 'L Моніторинг і тестування систем кібербезпеки' },
+                { start: '9:50', end: '11:25', class: 'L Апаратне забезпечення інформаційних систем' },
+                { start: '11:40', end: '13:30', class: 'P Філософія' }
+            ],
+            "Срд": [
+                { start: '11:40', end: '13:15', class: 'L Сигнали та процеси в СЗІ' },
+                { start: '13:30', end: '15:05', class: 'L Технології програмування' }
+            ],
+            "Чтв": [
+                { start: '11:40', end: '13:15', class: 'L Основи мережевих технології' },
+                { start: '13:30', end: '15:05', class: 'L Безпека мобільних додатків' }
+            ],
+            "Птн": [
+                { start: '8:00', end: '9:50', class: 'P Апаратне забезпечення інформаційних систем' },
+                { start: '9:50', end: '11:25', class: 'P Апаратне забезпечення інформаційних систем' },
+                { start: '11:40', end: '13:30', class: 'P Моніторинг і тестування систем кібербезпеки' }
+            ]
+        };
+
+        // Визначте, який зараз тиждень (0 для першого тижня, 1 для другого)
+        var currentWeek = 0;
+
+        function updateTime() {
+            var now = new Date();
+            var currentLesson = null;
+            var schedule = currentWeek === 0 ? schedule1 : schedule2;
+            var dayOfWeek = ["Нд", "Пнд", "Втр", "Срд", "Чтв", "Птн", "Сбт"][now.getDay()];
+            var todaySchedule = schedule[dayOfWeek];
+            if (todaySchedule) {
+                for (var i = 0; i < todaySchedule.length; i++) {
+                    var start = new Date();
+                    start.setHours(parseInt(todaySchedule[i].start.split(':')[0]));
+                    start.setMinutes(parseInt(todaySchedule[i].start.split(':')[1]));
+                    var end = new Date();
+                    end.setHours(parseInt(todaySchedule[i].end.split(':')[0]));
+                    end.setMinutes(parseInt(todaySchedule[i].end.split(':')[1]));
+                    if (now >= start && now <= end) {
+                        currentLesson = todaySchedule[i].class;
+                        var timeLeft = Math.floor((end - now) / 60000);
+                        break;
+                    }
+                }
+            }
+            document.getElementById('currentLesson').textContent = 'Поточна пара: ' + (currentLesson ? currentLesson : 'Немає');
+            document.getElementById('timeLeft').textContent = 'Часу залишилось: ' + (timeLeft ? timeLeft + ' хвилин' : '---');
+        }
+
+        setInterval(updateTime, 1000);
+        updateTime();
+    </script>
+</body>
+</html>

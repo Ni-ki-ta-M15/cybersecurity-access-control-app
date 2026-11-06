@@ -1,0 +1,638 @@
+<!--<!DOCTYPE html>-->
+<!--<html>-->
+<!--<head>-->
+<!--    <style>-->
+<!--        body {-->
+<!--            font-family: Arial, sans-serif;-->
+<!--            display: flex;-->
+<!--            justify-content: center;-->
+<!--            align-items: center;-->
+<!--            height: 720 px;-->
+<!--            margin: 0;-->
+<!--        }-->
+<!--        #time {-->
+<!--            text-align: center;-->
+<!--        }-->
+<!--    </style>-->
+<!--</head>-->
+<!--<body>-->
+<!--    <div>-->
+<!--        <h1 id="day">1</h1>-->
+<!--        <h2 id="time">2</h2>-->
+<!--    </div>-->
+<!--    <script>-->
+<!--        let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];-->
+
+<!--        function updateTime() {-->
+<!--            let date = new Date();-->
+<!--            document.getElementById("day").innerText = "Today is: " + days[date.getDay()];-->
+<!--            document.getElementById("time").innerText = "Current time is: " + date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();-->
+<!--        }-->
+
+<!--        function changeBackgroundColor() {-->
+<!--            let colors = ["#FF5733", "#C70039", "#900C3F", "#581845", "#154360", "#1B4F72", "#2E86C1"];-->
+<!--            document.body.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];-->
+<!--        }-->
+
+<!--        updateTime(); // Call once at the start to avoid delay-->
+<!--        setInterval(updateTime, 1000); // Then update every second-->
+<!--        setInterval(changeBackgroundColor, 10000); // Change background color every 10 seconds-->
+<!--    </script>-->
+<!--</body>-->
+<!--</html>-->
+
+
+
+<!--<!DOCTYPE html>-->
+<!--<html>-->
+<!--<head>-->
+<!--    <style>-->
+<!--        body {-->
+<!--            font-family: Arial, sans-serif;-->
+<!--            display: flex;-->
+<!--            justify-content: center;-->
+<!--            align-items: center;-->
+<!--            height: 100vh;-->
+<!--            margin: 0;-->
+<!--            background-size: cover;-->
+<!--            transition: background 1s;-->
+<!--            background: red;-->
+<!--        }-->
+<!--        #lastDay {-->
+<!--            text-align: center;-->
+<!--        }-->
+<!--    </style>-->
+<!--</head>-->
+<!--<body>-->
+<!--    <div>-->
+<!--        <h1 id="lastDay"></h1>-->
+<!--    </div>-->
+<!--    <script>-->
+<!--        function getLastDayOfMonth(year, month) {-->
+<!--            let date = new Date(year, month + 1, 0);-->
+<!--            return date.getDate();-->
+<!--        }-->
+<!--        document.getElementById("lastDay").innerText = "Last day of the month: " + getLastDayOfMonth(2023, 1); // for February 2023-->
+
+<!--        function changeBackgroundGradient() {-->
+<!--            let gradients = [-->
+<!--                "linear-gradient(to right, #ff9966, #ff5e62)",-->
+<!--                "linear-gradient(to right, #00F260, #0575E6)",-->
+<!--                "linear-gradient(to right, #e1eec3, #f05053)",-->
+<!--                "linear-gradient(to right, #f2a0a1, #360033)",-->
+<!--                "linear-gradient(to right, #6441a5, #2a0845)"-->
+<!--            ];-->
+<!--            document.body.style.background = gradients[Math.floor(Math.random() * gradients.length)];-->
+<!--        }-->
+
+<!--        setInterval(changeBackgroundGradient, 10000); // Change background gradient every 10 seconds-->
+<!--    </script>-->
+<!--</body>-->
+<!--</html>-->
+
+
+
+<!--<!DOCTYPE html>-->
+<!--<html>-->
+<!--<head>-->
+<!--    <style>-->
+<!--        body {-->
+<!--            font-family: Arial, sans-serif;-->
+<!--            display: flex;-->
+<!--            justify-content: center;-->
+<!--            align-items: center;-->
+<!--            height: 720px;-->
+<!--            margin: 0;-->
+<!--            background-size: cover;-->
+<!--            transition: background 1s;-->
+<!--            background-image: linear-gradient(to right,rgba(255, 182, 193, 0.9) , rgba(166, 101, 255, 0.8));-->
+<!--        }-->
+<!--        h2, h2 {-->
+<!--            text-align: center;-->
+<!--            transition: font-size 0.5s;-->
+<!--        }-->
+<!--        h2:hover, h2:hover {-->
+
+<!--            font-size: 2.1em;-->
+<!--            color:white;-->
+<!--        }-->
+<!--    </style>-->
+<!--</head>-->
+<!--<body>-->
+<!--    <div>-->
+<!--        <h2 id="secondsToday"></h2>-->
+<!--        <h2 id="secondsTomorrow"></h2>-->
+<!--    </div>-->
+<!--    <script>-->
+<!--        function getSecondsToday() {-->
+<!--            let now = new Date();-->
+<!--            let today = new Date(now.getFullYear(), now.getMonth(), now.getDate());-->
+<!--            let diff = now - today;-->
+<!--            return Math.round(diff / 1000);-->
+<!--        }-->
+
+<!--        function getSecondsToTomorrow() {-->
+<!--            let now = new Date();-->
+<!--            let tomorrow = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1);-->
+<!--            let diff = tomorrow - now;-->
+<!--            return Math.round(diff / 1000);-->
+<!--        }-->
+
+<!--        function updateSeconds() {-->
+<!--            document.getElementById("secondsToday").innerText = "Seconds since the start of the day: " + getSecondsToday();-->
+<!--            document.getElementById("secondsTomorrow").innerText = "Seconds until the start of the next day: " + getSecondsToTomorrow();-->
+<!--        }-->
+
+<!--        function changeBackgroundGradient() {-->
+<!--            let gradients = [-->
+<!--                "linear-gradient(to right, #ff9966, #ff5e62)",-->
+<!--                "linear-gradient(to right, #00F260, #0575E6)",-->
+<!--                "linear-gradient(to right, #e1eec3, #f05053)",-->
+<!--                "linear-gradient(to right, #f2a0a1, #360033)",-->
+<!--                "linear-gradient(to right, #6441a5, #2a0845)"-->
+<!--            ];-->
+<!--            document.body.style.background = gradients[Math.floor(Math.random() * gradients.length)];-->
+<!--        }-->
+
+<!--        updateSeconds(); // Call once at the start to avoid delay-->
+<!--        setInterval(updateSeconds, 1000); // Then update every second-->
+<!--        setInterval(changeBackgroundGradient, 1000); // Change background gradient every 10 seconds-->
+<!--    </script>-->
+<!--</body>-->
+<!--</html>-->
+
+
+<!--<!DOCTYPE html>-->
+<!--<html>-->
+<!--<head>-->
+<!--    <style>-->
+<!--        body {-->
+<!--            font-family: Arial, sans-serif;-->
+<!--            display: flex;-->
+<!--            flex-direction: column;-->
+<!--            justify-content: center;-->
+<!--            align-items: center;-->
+<!--            height: 100vh;-->
+<!--            margin: 0;-->
+<!--            background-size: cover;-->
+<!--            transition: background 1s;-->
+<!--            background: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);-->
+<!--        }-->
+<!--        table {-->
+<!--            border-collapse: collapse;-->
+<!--            width: 50%;-->
+<!--            text-align: center;-->
+<!--            font-size: 1.5em;-->
+<!--            margin-top: 20px;-->
+<!--            transition: transform 0.5s;-->
+<!--        }-->
+<!--        table:hover {-->
+<!--            transform: scale(1.1);-->
+<!--        }-->
+<!--        th, td {-->
+<!--            border: 1px solid black;-->
+<!--            padding: 15px;-->
+<!--        }-->
+<!--        tr:hover {-->
+<!--            background-color: #f5f5f5;-->
+<!--        }-->
+<!--        #year {-->
+<!--            text-align: center;-->
+<!--            font-size: 2em;-->
+<!--            transition: transform 0.5s;-->
+<!--        }-->
+<!--        #year:hover {-->
+<!--            transform: scale(1.1);-->
+<!--        }-->
+<!--        .star {-->
+<!--            position: absolute;-->
+<!--            width: 0;-->
+<!--            height: 0;-->
+<!--            border-left: 5px solid transparent;-->
+<!--            border-right: 5px solid transparent;-->
+<!--            border-bottom: 10px solid white;-->
+<!--            top: 50%;-->
+<!--            left: 50%;-->
+<!--            animation: starfly 5s infinite linear;-->
+<!--        }-->
+<!--        @keyframes starfly {-->
+<!--            0% {-->
+<!--                transform: translate(-50%, -50%) rotate(0deg);-->
+<!--            }-->
+<!--            100% {-->
+<!--                transform: translate(-50%, -50%) rotate(360deg);-->
+<!--            }-->
+<!--        }-->
+<!--    </style>-->
+<!--</head>-->
+<!--<body>-->
+<!--    <h1 id="year">Counting from the year 1653</h1>-->
+<!--    <table id="infoTable">-->
+<!--        <tr>-->
+<!--            <th>Half of Century (X)</th>-->
+<!--            <th>Century (C)</th>-->
+<!--            <th>Millennium (M)</th>-->
+<!--        </tr>-->
+<!--        <tr>-->
+<!--            <td id="half"></td>-->
+<!--            <td id="century"></td>-->
+<!--            <td id="millennium"></td>-->
+<!--        </tr>-->
+<!--    </table>-->
+<!--    <div class="star"></div>-->
+<!--    <script>-->
+<!--        function getCenturyAndMillennium(year) {-->
+<!--            let century = Math.ceil(year / 100);-->
+<!--            let millennium = Math.ceil(year / 1000);-->
+<!--            let half = year % 100 >= 50 ? 2 : 1;-->
+<!--            return [half, century, millennium];-->
+<!--        }-->
+<!--        let info = getCenturyAndMillennium(1653);-->
+<!--        document.getElementById("half").innerText = info[0];-->
+<!--        document.getElementById("century").innerText = info[1];-->
+<!--        document.getElementById("millennium").innerText = info[2];-->
+
+<!--        function changeBackgroundGradient() {-->
+<!--            let gradients = [-->
+<!--                "linear-gradient(to right, #ff9966, #ff5e62)",-->
+<!--                "linear-gradient(to right, #00F260, #0575E6)",-->
+<!--                "linear-gradient(to right, #e1eec3, #f05053)",-->
+<!--                "linear-gradient(to right, #f2a0a1, #360033)",-->
+<!--                "linear-gradient(to right, #6441a5, #2a0845)"-->
+<!--            ];-->
+<!--            document.body.style.background = gradients[Math.floor(Math.random() * gradients.length)];-->
+<!--        }-->
+
+<!--        setInterval(changeBackgroundGradient, 10000); // Change background gradient every 10 seconds-->
+<!--    </script>-->
+<!--</body>-->
+<!--</html>-->
+
+
+
+
+<!--<!DOCTYPE html>-->
+<!--<html>-->
+<!--<head>-->
+<!--    <style>-->
+<!--        body {-->
+<!--            font-family: Arial, sans-serif;-->
+<!--            display: flex;-->
+<!--            flex-direction: column;-->
+<!--            justify-content: center;-->
+<!--            align-items: center;-->
+<!--            height: 100vh;-->
+<!--            margin: 0;-->
+<!--            background-size: cover;-->
+<!--            transition: background 1s;-->
+<!--            background-image: linear-gradient(to right,rgba(255, 182, 193, 0.8) , rgba(166, 101, 255, 0.6));-->
+<!--        }-->
+<!--        table {-->
+<!--            border-collapse: collapse;-->
+<!--            width: 50%;-->
+<!--            text-align: center;-->
+<!--            font-size: 1.5em;-->
+<!--            margin-top: 20px;-->
+<!--        }-->
+<!--        th, td {-->
+<!--            border: 1px solid black;-->
+<!--            padding: 15px;-->
+<!--        }-->
+<!--        tr:hover {-->
+<!--            background-color: #f5f5f5;-->
+<!--        }-->
+<!--        #year {-->
+<!--            text-align: center;-->
+<!--            font-size: 2em;-->
+<!--        }-->
+<!--    </style>-->
+<!--</head>-->
+<!--<body>-->
+<!--    <h1 id="year">We count from the year 1653</h1>-->
+<!--    <table id="infoTable">-->
+<!--        <tr>-->
+<!--            <th>Half of Century (X)</th>-->
+<!--            <th>Century (C)</th>-->
+<!--            <th>Millennium (M)</th>-->
+<!--        </tr>-->
+<!--        <tr>-->
+<!--            <td id="half"></td>-->
+<!--            <td id="century"></td>-->
+<!--            <td id="millennium"></td>-->
+<!--        </tr>-->
+<!--    </table>-->
+<!--    <script>-->
+<!--        function getCenturyAndMillennium(year) {-->
+<!--            let century = Math.ceil(year / 100);-->
+<!--            let millennium = Math.ceil(year / 1000);-->
+<!--            let half = year % 100 >= 50 ? 2 : 1;-->
+<!--            return [half, century, millennium];-->
+<!--        }-->
+<!--        let info = getCenturyAndMillennium(1653);-->
+<!--        document.getElementById("half").innerText = info[0];-->
+<!--        document.getElementById("century").innerText = info[1];-->
+<!--        document.getElementById("millennium").innerText = info[2];-->
+
+<!--        function changeBackgroundGradient() {-->
+<!--            let gradients = [-->
+<!--                "linear-gradient(to right, #ff9966, #ff5e62)",-->
+<!--                "linear-gradient(to right, #00F260, #0575E6)",-->
+<!--                "linear-gradient(to right, #e1eec3, #f05053)",-->
+<!--                "linear-gradient(to right, #f2a0a1, #360033)",-->
+<!--                "linear-gradient(to right, #6441a5, #2a0845)"-->
+<!--            ];-->
+<!--            document.body.style.background = gradients[Math.floor(Math.random() * gradients.length)];-->
+<!--        }-->
+
+<!--        setInterval(changeBackgroundGradient, 10000); // Change background gradient every 10 seconds-->
+<!--    </script>-->
+<!--</body>-->
+<!--</html>-->
+
+
+
+<!--<!DOCTYPE html>-->
+<!--<html>-->
+<!--<head>-->
+<!--    <style>-->
+<!--        body {-->
+<!--            font-family: Arial, sans-serif;-->
+<!--            display: flex;-->
+<!--            flex-direction: column;-->
+<!--            justify-content: center;-->
+<!--            align-items: center;-->
+<!--            height: 100vh;-->
+<!--            margin: 0;-->
+<!--            background-size: cover;-->
+<!--            transition: background 1s;-->
+<!--        }-->
+<!--        #eventDuration {-->
+<!--            text-align: center;-->
+<!--            margin-top: 20px;-->
+<!--        }-->
+<!--        input[type="date"] {-->
+<!--            margin: 10px 0;-->
+<!--        }-->
+<!--    </style>-->
+<!--</head>-->
+<!--<body>-->
+<!--    <input type="date" id="startDate">-->
+<!--    <input type="date" id="endDate">-->
+<!--    <button onclick="calculateDuration()">Calculate Duration</button>-->
+<!--    <h1 id="eventDuration"></h1>-->
+<!--    <script>-->
+<!--        function calculateDuration() {-->
+<!--            let startDate = new Date(document.getElementById('startDate').value);-->
+<!--            let endDate = new Date(document.getElementById('endDate').value);-->
+<!--            let now = new Date();-->
+<!--            let diffTime = Math.abs(endDate - startDate);-->
+<!--            let diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));-->
+<!--            let years = Math.floor(diffDays / 365);-->
+<!--            diffDays -= years * 365;-->
+<!--            let months = Math.floor(diffDays / 30);-->
+<!--            diffDays -= months * 30;-->
+<!--            if (endDate > now) {-->
+<!--                document.getElementById("eventDuration").innerText = "It will be through " + years + " years " + months + " months " + diffDays + " day";-->
+<!--            } else {-->
+<!--                document.getElementById("eventDuration").innerText = "Its been " + years + " years " + months + " months  " + diffDays + " day";-->
+<!--            }-->
+<!--        }-->
+
+<!--        function changeBackgroundGradient() {-->
+<!--            let gradients = [-->
+<!--                "linear-gradient(to right, #ff9966, #ff5e62)",-->
+<!--                "linear-gradient(to right, #00F260, #0575E6)",-->
+<!--                "linear-gradient(to right, #e1eec3, #f05053)",-->
+<!--                "linear-gradient(to right, #f2a0a1, #360033)",-->
+<!--                "linear-gradient(to right, #6441a5, #2a0845)"-->
+<!--            ];-->
+<!--            document.body.style.background = gradients[Math.floor(Math.random() * gradients.length)];-->
+<!--        }-->
+
+<!--        setInterval(changeBackgroundGradient, 6000); // Change background gradient every 6 seconds-->
+<!--    </script>-->
+<!--</body>-->
+<!--</html>-->
+
+
+<!--<!DOCTYPE html>-->
+<!--<html>-->
+<!--<head>-->
+<!--    <style>-->
+<!--        body {-->
+<!--            font-family: Arial, sans-serif;-->
+<!--            display: flex;-->
+<!--            flex-direction: column;-->
+<!--            justify-content: center;-->
+<!--            align-items: center;-->
+<!--            height: 100vh;-->
+<!--            margin: 0;-->
+<!--            background-size: cover;-->
+<!--            transition: background 1s;-->
+<!--            background: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);-->
+<!--        }-->
+<!--        #timeDeviation {-->
+<!--            text-align: center;-->
+<!--            margin-top: 20px;-->
+<!--            font-size: 2em;-->
+<!--            color: #333;-->
+<!--        }-->
+<!--        input[type="time"] {-->
+<!--            margin: 10px 0;-->
+<!--            padding: 10px;-->
+<!--            font-size: 1.2em;-->
+<!--        }-->
+<!--        button {-->
+<!--            padding: 10px 20px;-->
+<!--            font-size: 1.2em;-->
+<!--            background-color: #4CAF50; /* Green */-->
+<!--            border: none;-->
+<!--            color: white;-->
+<!--            text-align: center;-->
+<!--            text-decoration: none;-->
+<!--            display: inline-block;-->
+<!--            transition-duration: 0.4s;-->
+<!--            cursor: pointer;-->
+<!--        }-->
+<!--        button:hover {-->
+<!--            background-color: #45a049;-->
+<!--        }-->
+<!--    </style>-->
+<!--</head>-->
+<!--<body>-->
+<!--    <input type="time" id="startTime">-->
+<!--    <input type="time" id="endTime">-->
+<!--    <button onclick="calculateTimeDeviation()">Calculate Time Deviation</button>-->
+<!--    <h1 id="timeDeviation"></h1>-->
+<!--    <script>-->
+<!--        function calculateTimeDeviation() {-->
+<!--            let startTime = document.getElementById('startTime').value;-->
+<!--            let endTime = document.getElementById('endTime').value;-->
+<!--            let now = new Date();-->
+<!--            let start = new Date("01/01/2007 " + startTime);-->
+<!--            let end = new Date("01/01/2007 " + endTime);-->
+<!--            let diffTime = Math.abs(end - start);-->
+<!--            let diffHours = Math.floor(diffTime / (1000 * 60 * 60));-->
+<!--            let diffMinutes = Math.floor((diffTime % (1000 * 60 * 60)) / (1000 * 60));-->
+<!--            if (end > now) {-->
+<!--                document.getElementById("timeDeviation").innerText = "This will be in " + diffHours + " hours and " + diffMinutes + " minutes.";-->
+<!--            } else {-->
+<!--                document.getElementById("timeDeviation").innerText = "It's been " + diffHours + " hours and " + diffMinutes + " minutes.";-->
+<!--            }-->
+<!--        }-->
+
+<!--        function changeBackgroundGradient() {-->
+<!--            let gradients = [-->
+<!--                "linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%)",-->
+<!--                "linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%)",-->
+<!--                "linear-gradient(120deg, #fccb90 0%, #d57eeb 100%)",-->
+<!--                "linear-gradient(120deg, #e0c3fc 0%, #8ec5fc 100%)",-->
+<!--                "linear-gradient(120deg, #f093fb 0%, #f5576c 100%)"-->
+<!--            ];-->
+<!--            document.body.style.background = gradients[Math.floor(Math.random() * gradients.length)];-->
+<!--        }-->
+
+<!--        setInterval(changeBackgroundGradient, 6000); // Change background gradient every 6 seconds-->
+<!--    </script>-->
+<!--</body>-->
+<!--</html>-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--<!DOCTYPE html>-->
+<!--<html>-->
+<!--<head>-->
+    <meta charset="UTF-8">
+<!--    <style>-->
+<!--        body {-->
+<!--            font-family: Arial, sans-serif;-->
+<!--            display: flex;-->
+<!--            justify-content: center;-->
+<!--            align-items: center;-->
+<!--            height: 100vh;-->
+<!--            margin: 0;-->
+<!--            background: linear-gradient(100deg, #a1c4fd 0%, #c2e9fb 100%);-->
+<!--            transition: background 2s;-->
+<!--        }-->
+<!--        .class-info {-->
+<!--            text-align: center;-->
+<!--            box-shadow: 0 0 10px rgba(0,0,0,0.7);-->
+<!--            padding: 20px;-->
+<!--            background: linear-gradient(120deg, #e0c3fc 45%, #8ec5fc 100%);-->
+<!--            transition: all 0.5s ease;-->
+<!--            transform: scale(1);-->
+<!--        }-->
+<!--        .class-info:hover {-->
+<!--            background: linear-gradient(120deg, #f093fb 45%, #f5576c 100%);-->
+<!--            transform: scale(1.05);-->
+<!--        }-->
+<!--        #current-class, #time-left {-->
+<!--            animation: fadeIn 2s;-->
+<!--        }-->
+<!--        #time-left {-->
+<!--            margin-top: 20px;-->
+<!--            padding: 10px;-->
+<!--            border: 1px solid #333;-->
+<!--            border-radius: 5px;-->
+<!--        }-->
+<!--        @keyframes fadeIn {-->
+<!--            0% {opacity: 0;}-->
+<!--            100% {opacity: 1;}-->
+<!--        }-->
+<!--    </style>-->
+<!--</head>-->
+<!--<body>-->
+<!--    <div class="class-info">-->
+<!--        <h1>Мій розклад</h1>-->
+<!--        <p id="current-class"></p>-->
+<!--    </div>-->
+<!--    <div id="time-left"></div>-->
+
+<!--    <script>-->
+<!--        // Ваш розклад-->
+<!--        var schedule = {-->
+<!--            "Пнд": [-->
+<!--                { start: '8:00', end: '9:35', class: 'P Сигнали та процеси в СЗІ' },-->
+<!--                { start: '9:50', end: '11:25', class: 'P Сигнали та процеси в СЗІ' },-->
+<!--            ],-->
+<!--            "Втр": [-->
+<!--                { start: '8:00', end: '9:35', class: 'L Моніторинг і тестування систем кібербезпеки' },-->
+<!--                { start: '9:50', end: '11:25', class: 'L Апаратне забезпечення інформаційних систем' },-->
+<!--                { start: '11:40', end: '18:15', class: 'P Філософія' },-->
+<!--            ],-->
+<!--            "Срд": [-->
+
+<!--                { start: '11:40', end: '13:15', class: 'L Сигнали та процеси в СЗІ' },-->
+<!--                { start: '13:30', end: '15:05', class: 'L Технології програмування' },-->
+<!--            ],-->
+<!--            "Чтв": [-->
+<!--                { start: '11:40', end: '13:15', class: 'L Основи мережевих технології' },-->
+<!--                { start: '13:30', end: '15:05', class: 'L Безпека мобільних додатків' },-->
+<!--            ],-->
+<!--            "Птн": [-->
+<!--                { start: '8:00', end: '9:50', class: 'P Апаратне забезпечення інформаційних систем' },-->
+<!--                { start: '9:50', end: '11:25', class: 'P Апаратне забезпечення інформаційних систем' },-->
+<!--                { start: '9:50', end: '11:25', class: 'P Моніторинг і тестування систем кібербезпеки' },-->
+<!--            ],-->
+
+<!--        };-->
+
+<!--        function getCurrentWeek() {-->
+<!--            var now = new Date();-->
+<!--            var start = new Date(now.getFullYear(), 0, 0);-->
+<!--            var diff = (now - start) + ((start.getTimezoneOffset() - now.getTimezoneOffset()) * 60 * 1000);-->
+<!--            var oneDay = 1000 * 60 * 60 * 24;-->
+<!--            var dayOfYear = Math.floor(diff / oneDay);-->
+<!--            return Math.floor(dayOfYear / 7);-->
+<!--        }-->
+
+<!--        function getCurrentClass() {-->
+<!--            var now = new Date();-->
+<!--            var day = ["Ндл", "Пнд", "Втр", "Срд", "Чтв", "Птн", "Сбт"][now.getDay()];-->
+<!--            var currentTime = now.getHours() + ":" + now.getMinutes();-->
+
+<!--            var currentWeek = getCurrentWeek();-->
+<!--            var todaysClasses = currentWeek % 2 === 0 ? schedule[day] : schedule2[day];-->
+<!--            todaysClasses = todaysClasses || [];-->
+<!--            for (var i = 0; i < todaysClasses.length; i++) {-->
+<!--                if (currentTime >= todaysClasses[i].start && currentTime <= todaysClasses[i].end) {-->
+<!--                    return todaysClasses[i];-->
+<!--                }-->
+<!--            }-->
+<!--            return null;-->
+<!--        }-->
+
+<!--        function updateTimeLeft() {-->
+<!--            var currentClass = getCurrentClass();-->
+<!--            if (currentClass) {-->
+<!--                document.getElementById('current-class').innerText = "Поточна пара: " + currentClass.class;-->
+<!--                // Обчисліть, скільки часу залишилося-->
+<!--                var now = new Date();-->
+<!--                var endTime = new Date();-->
+<!--                endTime.setHours(parseInt(currentClass.end.split(':')[0]));-->
+<!--                endTime.setMinutes(parseInt(currentClass.end.split(':')[1]));-->
+<!--                var timeLeft = Math.floor((endTime - now) / 60000); // в хвилинах-->
+<!--                document.getElementById('time-left').innerText = "Часу залишилося: " + timeLeft + " хвилин";-->
+<!--            } else {-->
+<!--                document.getElementById('current-class').innerText = "Зараз немає пар";-->
+<!--                document.getElementById('time-left').innerText = "";-->
+<!--            }-->
+<!--        }-->
+
+<!--        setInterval(updateTimeLeft, 60000); // оновлюємо кожну хвилину-->
+<!--        updateTimeLeft(); // оновлюємо відразу-->
+<!--    </script>-->
+<!--</body>-->
+<!--</html>-->

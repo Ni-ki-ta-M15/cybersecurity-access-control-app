@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Дні тижня та місяці</title>
+    <meta charset="UTF-8">
+        <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-size: cover;
+            transition: background 1s;
+            background-image: linear-gradient(to right,rgba(255, 182, 193, 0.8) , rgba(166, 101, 255, 0.6));
+        }
+        table {
+            border-collapse: collapse;
+            width: 50%;
+            text-align: center;
+            font-size: 1.5em;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 15px;
+        }
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+        #year {
+            text-align: center;
+            font-size: 2em;
+        }
+    </style>
+</head>
+<body>
+    <h1>Дні тижня</h1>
+    <div id="days"></div>
+
+    <h1>Місяці</h1>
+    <div id="months"></div>
+
+    <h1>Користувач</h1>
+    <div id="user"></div>
+
+    <h1>Дата</h1>
+    <div id="date"></div>
+
+    <script>
+        var daysOfWeek = {
+            1: "Понеділок",
+            2: "Вівторок",
+            3: "Середа",
+            4: "Четвер",
+            5: "П'ятниця",
+            6: "Субота",
+            7: "Неділя"
+        };
+
+        for (var key in daysOfWeek) {
+            document.getElementById("days").innerHTML += "Ключ: " + key + ", Значення: " + daysOfWeek[key] + "<br>";
+        }
+
+        var months = {
+            1: "Січень",
+            2: "Лютий",
+            3: "Березень",
+            4: "Квітень",
+            5: "Травень",
+            6: "Червень",
+            7: "Липень",
+            8: "Серпень",
+            9: "Вересень",
+            10: "Жовтень",
+            11: "Листопад",
+            12: "Грудень"
+        };
+
+        for (var key in months) {
+            document.getElementById("months").innerHTML += "Ключ: " + key + ", Значення: " + months[key] + "<br>";
+        }
+
+        var user = {
+            name: "Нікіта",
+            surname: "Малий",
+            patronymic: "Михайлович"
+        };
+
+        document.getElementById("user").innerHTML = user.surname + " " + user.name + " " + user.patronymic;
+
+        var date = new Date();
+        var currentDate = {
+            year: date.getFullYear(),
+            month: date.getMonth() + 1,
+            day: date.getDate()
+        };
+
+        document.getElementById("date").innerHTML = currentDate.year + "-" + currentDate.month + "-" + currentDate.day;
+
+
+
+    </script>
+</body>
+</html>
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JavaScript завдання</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <h1>JavaScript завдання</h1>
+    <div id="output"></div>
+
+    <script>
+        // 5. Даний об'єкт:
+        let obj = {
+          '1a': 1,
+          'b2': 2,
+          'с-с': 3,
+          'd 4': 4,
+          'e5': 5
+        };
+        // Для ключів '1a', 'с-с', 'd 4' лапки обов'язкові, оскільки вони містять символи, які не можна використовувати в іменах змінних без лапок. Для 'b2' та 'e5' лапки не обов'язкові.
+
+        // 6. Виправте помилки, допущені в наступному коді:
+        let obj = {
+          '1a': 1,
+          'b2': 2,
+          'с-с': 3,
+          'd 4': 4,
+          'e5': 5
+        };
+        console.log(obj['1a']); // виправлено на obj['1a']
+        console.log(obj.b2); // вже правильно
+        console.log(obj['с-с']); // виправлено на obj['с-с']
+        console.log(obj['d 4']); // виправлено на obj['d 4']
+        console.log(obj.e5); // вже правильно
+
+        // 7. Даний об'єкт:
+        let obj = {x: 1, y: 2, z: 3};
+        // Зведіть у квадрат кожен елемент цього об'єкта.
+        for (let key in obj) {
+          obj[key] *= obj[key];
+        }
+
+        // 8. Створіть об'єкт і переконайтеся, що порядок ключів у ньому не має значення.
+        let obj = {b: 2, a: 1, c: 3}; // порядок ключів не має значення в об'єктах
+
+        // 9. Отримайте масив ключів наступного об'єкта:
+        let obj = {x: 1, y: 2, z: 3};
+        let keys = Object.keys(obj); // повертає масив ключів об'єкта
+
+        // 10. Знайдіть кількість елементів у наступному об'єкті:
+        let obj = {x: 1, y: 2, z: 3};
+        let count = Object.keys(obj).length; // повертає кількість ключів в об'єкті
+
+        // 11. Даний наступний об'єкт:
+        let obj = {x: 1, y: 2, z: 3};
+        // Дана змінна key, в якій зберігається один із ключів нашого об'єкта. За допомогою цієї змінної виведіть відповідний елемент об'єкта.
+        let key = 'x';
+        console.log(obj[key]); // виводить значення, що відповідає ключу 'x'
+
+        // 12. Виправте помилку, допущену в наступному коді:
+        let obj = {x: 1, y: 2, z: 3};
+        console.log(obj['x']); // виправлено на obj['x']
+
+        // 13. Виправте помилку, допущену в наступному коді:
+        let obj = {x: 1, y: 2, z: 3};
+        let key = 'x';
+        console.log(obj[key]); // виправлено на obj[key]
+
+        // 14. Виправте помилку, допущену в наступному коді:
+        let obj = {x: 1, y: 2, z: 3};
+        let prop = 'x';
+        console.log(obj[prop]); // виправлено на obj[prop]
+
+        // 15. Виправте помилку, допущену в наступному коді:
+        let obj = {x: 1, y: 2, z: 3};
+        let prop = 'x';
+        console.log(obj[prop]); // виправлено на obj[prop]
+
+        // Завдання 16
+        let obj4 = {
+            [key]: 1,
+            y: 2,
+            z: 3
+        };
+        console.log(obj4);
+
+        // Завдання 17
+        let key1 = 'x';
+        let key2 = 'y';
+        let key3 = 'z';
+        let obj5 = {
+            [key1]: 1,
+            [key2]: 2,
+            [key3]: 3
+        };
+        console.log(obj5);
+
+        // 20. Не запускаючи код, визначте, що виведеться в консоль:
+        console.log( typeof {x: 1, y: 2, z: 3} ); // "object", оскільки {x: 1, y: 2, z: 3} - це об'єкт
+
+        // 21. Не запускаючи код, визначте, що виведеться в консоль:
+        console.log( typeof {} ); // "object", оскільки {} - це об'єкт
+
+        // 22. Не запускаючи код, визначте, що виведеться в консоль:
+        let obj = {x: 1, y: 2, z: 3};
+        console.log( typeof obj ); // "object", оскільки obj - це об'єкт
+
+        // 23. Не запускаючи код, визначте, що виведеться в консоль:
+        let obj = {x: 1, y: 2, z: 3};
+        console.log( typeof obj['x'] ); // "number", оскільки obj['x'] - це число
+
+        // 24. Не запускаючи код, визначте, що виведеться на екран у консоль:
+        console.log( typeof {x: 1, y: 2, z: 3} ); // "object", оскільки {x: 1, y: 2, z: 3} - це об'єкт
+
+        // 25. Не запускаючи код, визначте, що виведеться в консоль:
+        console.log( typeof [1, 2, 3] ); // "object", оскільки [1, 2, 3] - це масив, а масиви в JavaScript є типом "object"
+
+        // 26. Не запускаючи код, визначте, що виведеться в консоль:
+        let arr = [1, 2, 3];
+        console.log( typeof arr ); // "object", оскільки arr - це масив, а масиви в JavaScript є типом "object"
+
+        // 27. Не запускаючи код, визначте, що виведеться в консоль:
+        let arr = [1, 2, 3];
+        console.log( typeof arr[0] ); // "1", оскільки arr[0] - це число
+
+        // 28. Не запускаючи код, визначте, що виведеться в консоль:
+        let arr = ['1', '2', '3'];
+        console.log( typeof arr[0] ); // "string", оскільки arr[0] - це рядок
+
+        // 29. Не запускаючи код, визначте, що виведеться на екран у консоль:
+        console.log( Array.isArray([1, 2, 3]) ); // true, оскільки [1, 2, 3] - це масив
+
+        // 30. Не запускаючи код, визначте, що виведеться на екран у консоль:
+        console.log( Array.isArray({x: 1, y: 2, z: 3}) ); // false, оскільки {x: 1, y: 2, z: 3} - це об'єкт, а не масив
+
+        // 31. Даний наступний код:
+        let test = {x: 1, y: 2, z: 3};
+        console.log(test);
+        // Виведеться "{x: 1, y: 2, z: 3}", а тип даних, що виведеться в консоль - "object". Це об'єкт.
+
+        // 32. Даний наступний код:
+        let test = {x: 1, y: 2, z: 3};
+        console.log(test.x);
+        // Виведеться "1", а тип даних, що виведеться в консоль - "number". Це примітив.
+
+        // 33. Даний наступний код:
+        let test = [1, 2, 3];
+        console.log(test);
+        // Виведеться "[1, 2, 3]", а тип даних, що виведеться в консоль - "object". Це об'єкт (масив).
+
+        // 34. Даний наступний код:
+        let test = [1, 2, 3];
+        console.log(test[1]);
+        // Виведеться "2", а тип даних, що виведеться в консоль - "number". Це примітив.
+
+        // 35. Даний наступний код:
+        let test1 = [1, 2, 3];
+        let test2 = 1;
+        console.log(test1);
+        // Виведеться "[1, 2, 3]", а тип даних, що виведеться в консоль - "object". Це об'єкт (масив).
+
+        // 35. Даний наступний код:
+        let test1 = [1, 2, 3];
+        let test2 = 1;
+        console.log(test1);
+        // Виведеться "[1, 2, 3]", а тип даних, що виведеться в консоль - "object". Це об'єкт (масив).
+
+        // 36. Даний наступний код:
+        let test1 = [1, 2, 3];
+        let test2 = 1;
+        console.log(test1[test2]);
+        // Виведеться "2", а тип даних, що виведеться в консоль - "number". Це примітив.
+
+        // 37. Перерахуйте всі примітивні типи даних JavaScript.
+        // Примітивні типи даних в JavaScript: string, number, bigint, boolean, undefined, symbol, null
+
+        // 38. Не запускаючи код, визначте, що виведеться в консоль:
+        let arr1 = [1, 2, 3];
+        let arr2 = arr1;
+        arr1[0] = 'a';
+        console.log(arr2);
+        // Виведеться ["a", 2, 3], оскільки arr2 посилається на той же об'єкт, що і arr1
+
+        // 39. Не запускаючи код, визначте, що виведеться в консоль:
+        let arr1 = [1, 2, 3];
+        let arr2 = arr1;
+        arr1[0] = 'a';
+        arr2[1] = 'b';
+        console.log(arr1);
+        // Виведеться ["a", "b", 3], оскільки arr2 посилається на той же об'єкт, що і arr1
+
+        // 40. Не запускаючи код, визначте, що виведеться в консоль:
+        let arr1 = [1, 2, 3];
+        let arr2 = arr1;
+        arr1[0] = 'a';
+        arr2[0] = 'b';
+        console.log(arr2);
+        // Виведеться ["b", 2, 3], оскільки arr2 посилається на той же об'єкт, що і arr1
+
+        // 41. Що виведеться в результаті виконання наступного коду:
+        const arr = ['a', 'b', 'c'];
+        arr[1] = '!';
+        console.log(arr);
+        // Виведеться ["a", "!", "c"], оскільки ми змінили другий елемент масиву
+
+        // 42. Що виведеться в результаті виконання наступного коду:
+        const arr = ['a', 'b', 'c'];
+        arr = [1, 2, 3];
+        console.log(arr);
+        // Виникне помилка, оскільки ми намагаємося переприсвоїти константу
+
+        // 43. Що виведеться в результаті виконання наступного коду:
+        const arr = ['a', 'b', 'c'];
+        arr = ['a', 'b', 'c'];
+        console.log(arr);
+        // Виникне помилка, оскільки ми намагаємося переприсвоїти константу
+
+        // 44. Пошук помилок у коді з об'єктами JavaScript
+        // Код виведе елемент об'єкта:
+        let obj = {x: 1, y: 2, z: 3};
+        console.log(obj['x']); // Помилка. Потрібно використовувати квадратні дужки: console.log(obj['x']);
+
+        // Код виведе елемент об'єкта по ключу зі змінної:
+        let obj = {x: 1, y: 2, z: 3};
+        let key = 'x';
+        console.log(obj.key); // Помилка. Потрібно використовувати квадратні дужки: console.log(obj[key]);
+
+        // Код виведе суму елементів об'єкта:
+        let obj = {x: 1, y: 2, z: 3};
+        let sum = obj[x] + obj[y] + obj[x]; // Помилка. Потрібно використовувати квадратні дужки: let sum = obj['x'] + obj['y'] + obj['z'];
+        console.log(obj); // Помилка. Потрібно вивести sum, а не obj: console.log(sum);
+
+        // Код виведе кількість елементів об'єкта:
+        let obj = {x: 1, y: 2, z: 3};
+        console.log(obj.length); // Помилка. Об'єкти в JavaScript не мають властивості length. Ми можемо використовувати Object.keys(obj).length для отримання кількості ключів в об'єкті.
+
+        // 45. У нас є наступний об'єкт:
+        let user = {
+          name: "John",
+          age: 30
+        };
+        // Перевірте, що цей об'єкт не є порожнім і що в ньому є ключ age.
+        if (Object.keys(user).length > 0 && 'age' in user) {
+          console.log("Об'єкт не порожній і в ньому є ключ age");
+        } else {
+          console.log("Об'єкт порожній або в ньому немає ключа age");
+        }
+
+        // 46. Є масив об'єктів:
+        let users = [
+          {
+            name: "John",
+            age: 30
+          },
+          {
+            name: "Bob",
+            age: 21
+          },
+          {
+            name: "Anna",
+            age: 19
+          }
+        ];
+        // Отримайте з цього масиву об'єкт, де name == "Bob" і збережіть це в будь-якій змінній.
+        let bob = users.find(user => user.name === "Bob");
+
+        // 47. Видаліть із масиву об'єктів (завдання 46) об'єкт з name == "Anna".
+        users = users.filter(user => user.name !== "Anna");
+
+        // 48. Відсортуйте масив об'єктів у пункті 2 за якістю age у порядку зростання.
+        users.sort((a, b) => a.age - b.age);
+
+        // 49. Отримайте з об'єкта obj значення id у констанду id, не використовуючи вираз obj.id
+        const obj = {
+          id: 5,
+          token: 12343423
+        };
+        const { id } = obj;
+
+        // 50. Отримайте з об'єкта obj значення id та розмістіть його у константі userId.
+        const obj = {
+          id: 5,
+          token: 12343423
+        };
+        const { id: userId } = obj;
+    </script>
+</body>
+</html>

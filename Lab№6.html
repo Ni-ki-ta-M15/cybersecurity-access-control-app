@@ -1,0 +1,190 @@
+<!--<!DOCTYPE html>-->
+<!--<html>-->
+<!--<head>-->
+<!--    <title>Лабораторная робота № 6</title>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <style>-->
+<!--        body {-->
+<!--            background: linear-gradient(to right, #8360c3, #2ebf91);-->
+<!--            color: white;-->
+<!--            font-family: Arial, sans-serif;-->
+<!--            display: flex;-->
+<!--            justify-content: center;-->
+<!--            align-items: center;-->
+<!--            height: 100vh;-->
+<!--            margin: 0;-->
+<!--        }-->
+<!--        #output {-->
+<!--            text-align: center;-->
+<!--            font-size: 20px;-->
+<!--        }-->
+<!--    </style>-->
+<!--</head>-->
+<!--<body>-->
+<!--    <div id="output"></div>-->
+<!--    <script>-->
+<!--        let Treag = Array.from({length: 10}, (_, i) => (i+1)*(i+2)/2);-->
+<!--        document.getElementById('output').innerText = "Масив Treugolnikiv: " + Treag.join("  ");-->
+
+<!--        let kvd = Array.from({length: 10}, (_, i) => Math.pow(i+1, 2));-->
+<!--        document.getElementById('output').innerText += "\n\nМасив Kvadrativ: " + kvd.join("  ");-->
+
+<!--        let rez = Treag.concat(kvd);-->
+<!--        document.getElementById('output').innerText += "\n\nОб'єднаний масив rez: " + rez.join("  ");-->
+
+<!--        rez.sort((a, b) => b - a);-->
+<!--        document.getElementById('output').innerText += "\n\nВідсортований масив rez: " + rez.join("  ");-->
+<!--    </script>-->
+<!--</body>-->
+<!--</html>-->
+
+<!--&lt;!&ndash;Task #2&ndash;&gt;-->
+
+<!--<!DOCTYPE html>-->
+<!--<html>-->
+<!--<head>-->
+<!--    <title>Лабораторная робота № 6</title>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <style>-->
+<!--        body {-->
+<!--            background: linear-gradient(to right, #8360c3, #2ebf91); /* Змінений градієнтний фон */-->
+<!--            color: white;-->
+<!--            font-family: Arial, sans-serif;-->
+<!--            display: flex;-->
+<!--            justify-content: center;-->
+<!--            align-items: center;-->
+<!--            height: 100vh;-->
+<!--            margin: 0;-->
+<!--        }-->
+<!--        #output {-->
+<!--            text-align: center;-->
+<!--            font-size: 20px;-->
+<!--        }-->
+<!--        .highlight {-->
+<!--            color: #FF00FF; /* Виділення мінімального елемента */-->
+<!--        }-->
+<!--    </style>-->
+<!--</head>-->
+<!--<body>-->
+<!--    <div id="output"></div>-->
+<!--    <script>-->
+<!--        // Сформуємо одновимірний масив з 15 випадкових чисел-->
+<!--        let arr = Array.from({length: 15}, () => Math.floor(Math.random() * 100));-->
+<!--        document.getElementById('output').innerText = "Початковий масив: " + arr.join("  ");-->
+
+<!--        // Знайдемо індекс мінімального елемента-->
+<!--        let minIndex = arr.reduce((minIdx, currVal, currIdx, arr) => currVal < arr[minIdx] ? currIdx : minIdx, 0);-->
+
+<!--        // Поміняємо місцями мінімальний елемент та передостанній елемент-->
+<!--        [arr[minIndex], arr[arr.length - 2]] = [arr[arr.length - 2], arr[minIndex]];-->
+
+<!--        // Виділимо мінімальний елемент-->
+<!--        arr = arr.map((val, idx) => idx === arr.length - 2 ? `<span class="highlight">${val}</span>` : val);-->
+<!--        document.getElementById('output').innerHTML += "<br><br>Масив після сортування: " + arr.join("  ");-->
+<!--    </script>-->
+<!--</body>-->
+<!--</html>-->
+
+<!--Task #3-->
+
+<!--<!DOCTYPE html>-->
+<!--<html>-->
+<!--<head>-->
+<!--    <title>Лабораторная робота № 6</title>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <style>-->
+<!--        body {-->
+<!--            background: radial-gradient(circle, #aaffa9, #11ffbd, #20002c); /* Змінений круговий градієнтний фон */-->
+<!--            color: white;-->
+<!--            font-family: Arial, sans-serif;-->
+<!--            display: flex;-->
+<!--            justify-content: center;-->
+<!--            align-items: center;-->
+<!--            height: 100vh;-->
+<!--            margin: 0;-->
+<!--            color: black;-->
+<!--            font-weight: 700;-->
+<!--        }-->
+<!--        #output {-->
+<!--            text-align: center;-->
+<!--            font-size: 20px;-->
+<!--        }-->
+<!--        .highlight {-->
+<!--            color: red; /* Виділення чисел, що стоять на місцях, кратних 3 */-->
+<!--        }-->
+<!--    </style>-->
+<!--</head>-->
+<!--<body>-->
+<!--    <div id="output"></div>-->
+<!--    <script>-->
+<!--        let arr = Array.from({length: 15}, () => Math.floor(Math.random() * 201) - 100);-->
+<!--        document.getElementById('output').innerText = "Початковий масив: " + arr.join("  ");-->
+
+<!--        let product = arr.filter((_, i) => i % 3 === 0).reduce((a, b) => a * b, 1);-->
+<!--        let count = arr.filter(val => val < 0).length;-->
+
+<!--        document.getElementById('output').innerText += "\n\nДобуток чисел, що стоять на місцях, кратних 3: " + product;-->
+<!--        document.getElementById('output').innerText += "\n\nКількість від’ємних чисел: " + count;-->
+
+<!--        // Виділимо числа, що стоять на місцях, кратних 3-->
+<!--        arr = arr.map((val, idx) => idx % 3 === 0 ? `<span class="highlight">${val}</span>` : val);-->
+<!--        document.getElementById('output').innerHTML += "<br><br>Масив після виділення: " + arr.join("  ");-->
+<!--    </script>-->
+<!--</body>-->
+<!--</html>-->
+
+
+<!--&lt;!&ndash; task #4&ndash;&gt;-->
+<!--<!DOCTYPE html>-->
+<!--<html>-->
+<!--<head>-->
+<!--    <title>Лабораторная робота № 6</title>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <style>-->
+<!--        body {-->
+<!--            background: conic-gradient(from 45deg,red,orange,#FFD700,green,blue,purple);-->
+<!--            color: white;-->
+<!--            font-family: Arial, sans-serif;-->
+<!--            display: flex;-->
+<!--            justify-content: center;-->
+<!--            align-items: center;-->
+<!--            height: 950px;-->
+<!--            margin: 0;-->
+
+<!--        }-->
+<!--        #output {-->
+<!--            text-align: left;-->
+<!--            font-size: 20px;-->
+<!--            width: 50%;-->
+<!--        }-->
+<!--        .title {-->
+<!--            font-weight: bold;-->
+<!--            text-decoration: underline;-->
+<!--    </style>-->
+<!--</head>-->
+<!--<body>-->
+<!--    <div id="output"></div>-->
+<!--    <script>-->
+<!--        let fruits = ['apple', 'pineapple', 'mango', 'melon', 'grape'];-->
+<!--        let citrus = ['orange', 'lemon', 'lime'];-->
+
+<!--        fruits = [...fruits, ...citrus];-->
+<!--        document.getElementById('output').innerHTML = "<span class='title'>Об'єднаний масив fruits:</span> " + fruits.join(", ");-->
+
+<!--        fruits.splice(fruits.indexOf('mango') + 1, 0, 'pear', 'cherry', 'plum', 'raspberry', 'strawberry');-->
+<!--        document.getElementById('output').innerHTML += "<br><br><span class='title'>Масив fruits після вставки:</span> " + fruits.join(", ");-->
+
+<!--        fruits.splice(-3, 3);-->
+<!--        document.getElementById('output').innerHTML += "<br><br><span class='title'>Масив fruits після видалення:</span> " + fruits.join(", ");-->
+
+<!--        fruits.sort();-->
+<!--        document.getElementById('output').innerHTML += "<br><br><span class='title'>Масив fruits після сортування:</span> " + fruits.join(", ");-->
+
+<!--        fruits.reverse();-->
+<!--        document.getElementById('output').innerHTML += "<br><br><span class='title'>Масив fruits у зворотному порядку:</span> " + fruits.join(", ");-->
+
+<!--        fruits.sort((a, b) => a.length - b.length);-->
+<!--        document.getElementById('output').innerHTML += "<br><br><span class='title'>Масив fruits, відсортований за довжиною слів:</span> " + fruits.join(", ");-->
+<!--    </script>-->
+<!--</body>-->
+<!--</html>-->

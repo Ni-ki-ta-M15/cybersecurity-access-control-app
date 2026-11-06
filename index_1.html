@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: linear-gradient(100deg, #a1c4fd 0%, #c2e9fb 100%);
+            transition: background 2s;
+        }
+        .class-info {
+            text-align: center;
+            box-shadow: 0 0 10px rgba(0,0,0,0.7);
+            padding: 20px;
+            background: linear-gradient(120deg, #e0c3fc 45%, #8ec5fc 100%);
+            transition: all 0.5s ease;
+            transform: scale(1);
+        }
+        .class-info:hover {
+            background: linear-gradient(120deg, #f093fb 45%, #f5576c 100%);
+            transform: scale(1.05);
+        }
+        #current-class, #time-left {
+            animation: fadeIn 2s;
+        }
+        #time-left {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #333;
+            border-radius: 5px;
+        }
+        @keyframes fadeIn {
+            0% {opacity: 0;}
+            100% {opacity: 1;}
+        }
+    </style>
+</head>
+<body>
+    <div class="class-info">
+        <h1>Мій розклад</h1>
+        <p id="current-class"></p>
+    </div>
+    <div id="time-left"></div>
+
+    <script>
+        // Ваш розклад для першого тижня
+        var schedule1 = {
+            "Пнд": [
+                {start: "8:30", end: "10:30", class: "Пара 1"}
+                // Додайте інші пари для понеділка
+            ],
+            "Втр": [
+                // Пари для вівторка
+            ],
+            "Срд": [
+                {start: "8:30", end: "10:30", class: "Пара 1"}
+                // Пари для середи
+            ],
+            "Чтв": [
+                // Пари для четверга
+            ],
+            "Птн": [
+                // Пари для п'ятниці
+            ]
+        };
+
+        // Ваш розклад для другого тижня
+        var schedule2 = {
+            "Пнд": [
+                // Пари для понеділка
+            ],
+            "Втр": [
+                // Пари для вівторка
+            ],
+            "Срд": [
+                {start: "8:30", end: "10:30", class: "Пара 1"}
+                // Пари для середи
+            ],
+            "Чтв": [
+                // Пари для четверга
+            ],
+            "Птн": [
+                // Пари для п'ятниці
+            ]
+        };
+
+        function getCurrentWeek() {
+            var now = new Date();
+            var start = new Date(now.getFullYear(), 0, 0);
+            var diff = (now - start) + ((start.getTimezoneOffset() - now.getTimezoneOffset()) * 60 * 1000);
+            var oneDay = 1000 * 60 * 60 * 24;
+            var dayOfYear = Math.floor(diff / oneDay);
+            return Math.floor(dayOfYear / 7);
+        }
+
+        function getCurrentClass() {
+            var now = new Date();
+            var day = ["Пнд", "Втр", "Срд", "Чтв", "Птн"][now.getDay() - 1];
+            var currentTime = now.getHours() + ":" + now.getMinutes();
+
+            var currentWeek = getCurrentWeek();
+            var todaysClasses = currentWeek % 2 === 0 ? schedule1[day] : schedule2[day];
+            todaysClasses = todaysClasses || [];
+            for (var i = 0; i < todaysClasses.length; i++) {
+                if (currentTime >= todaysClasses[i].start && currentTime <= todaysClasses[i].end) {
+                    return todaysClasses[i];
+                }
+            }
+            return null;
+        }
+
+        function updateTimeLeft() {
+            var currentClass = getCurrentClass();
+            if (currentClass) {
+                document.getElementById('current-class').innerText = "Поточна пара: " + currentClass.class;
+                // Обчисліть, скільки часу залишилося
+                var now = new Date();
+                var endTime = new Date();
+                endTime.setHours(parseInt(currentClass.end.split(':')[0]));
+                endTime.setMinutes(parseInt(currentClass.end.split(':')[1]));
+                var timeLeft = Math.floor((endTime - now) / 60000); // в хвилинах
+                document.getElementById('time-left').innerText = "Часу залишилося: " + timeLeft + " хвилин";
+            } else {
+                document.getElementById('current-class').innerText = "Зараз немає пар";
+                document.getElementById('time-left').innerText = "";
+            }
+        }
+
+        setInterval(updateTimeLeft, 60000); // оновлюємо кожну хвилину
+        updateTimeLeft(); // оновлюємо відразу
+    </script>
+</body>
+</html>

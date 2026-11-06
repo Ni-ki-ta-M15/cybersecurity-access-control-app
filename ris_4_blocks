@@ -1,0 +1,20 @@
+// Перевірка додатково введених блоків
+digraph {
+	fontname=Arial fontsize=14 label="
+Рис. 4 Перевірка додатково введених блоків" labeljust=c labelloc=b rankdir=TB
+	node [color="#0288D1" fillcolor="#E1F5FE" fontname=Arial fontsize=11 height=0.8 shape=box style="filled,rounded" width=3.2]
+	{
+		rank=same
+		block1 [label="Автономний блок
+генерації (LFSR)"]
+		block2 [label="Блок динамічних
+побітових операцій"]
+	}
+	{
+		rank=same
+		block3 [label="Блок безпечної
+передачі даних"]
+		block4 [label="Блок криптографічного
+знищення даних"]
+	}
+}

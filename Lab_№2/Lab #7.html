@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JavaScript Functions</title>
+    <style>
+        body {
+            height: 100vh;
+            margin: 0;
+            background: conic-gradient(#DC143C, #0000CD);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-family: Arial, sans-serif;
+            flex-direction: column;
+        }
+        h2 {
+            margin-top: 20px;
+        }
+        p {
+            transition: font-size 0.3s ease;
+        }
+        p:hover {
+            font-size: 1.2em;
+        }
+        hr {
+            width: 50%;
+            border: none;
+            border-top: 1px solid white;
+        }
+    </style>
+</head>
+<body>
+    <h2>Level 1</h2>
+    <div id="output1"></div>
+    <hr>
+    <h2>Level 2</h2>
+    <div id="output2"></div>
+    <hr>
+    <h2>Level 3</h2>
+    <div id="output3"></div>
+    <hr>
+    <h2>Level 4</h2>
+    <div id="output4"></div>
+
+    <script>
+        // Level 1 Functions
+        function sum(a, b) {
+          return a + b;
+        }
+
+        function lengthOfString(str) {
+          return str.length;
+        }
+
+        function doubleElements(arr) {
+          return arr.map(el => el * 2);
+        }
+
+        // Level 2 Functions
+        function sortByName(arr) {
+          return arr.sort((a, b) => a.name.localeCompare(b.name));
+        }
+
+        function isPowerOfTwo(n) {
+          return Math.log2(n) % 1 === 0;
+        }
+
+        function isPalindromeNumber(n) {
+          return n.toString() === n.toString().split('').reverse().join('');
+        }
+
+        // Level 3 Functions
+        function removeDuplicates(arr) {
+          return [...new Set(arr)];
+        }
+
+        function sortByAge(arr) {
+          return arr.sort((a, b) => a.age - b.age);
+        }
+
+        function pairsThatSumToTen(arr) {
+          let pairs = [];
+          for (let i = 0; i < arr.length; i++) {
+            for (let j = i + 1; j < arr.length; j++) {
+              if (arr[i] + arr[j] === 10) {
+                pairs.push([arr[i], arr[j]]);
+              }
+            }
+          }
+          return pairs;
+        }
+
+        // Level 4 Functions
+        function removeNestedObjects(obj) {
+          for (let key in obj) {
+            if (typeof obj[key] === 'object') {
+              delete obj[key];
+            }
+          }
+          return obj;
+        }
+
+        function evaluateExpression(expr) {
+          return Function(`'use strict'; return (${expr})`)();
+        }
+
+        function threeSum(nums) {
+          nums.sort((a, b) => a - b);
+          let result = [];
+          for (let i = 0; i < nums.length - 2; i++) {
+            if (i > 0 && nums[i] === nums[i - 1]) continue;
+            let j = i + 1, k = nums.length - 1;
+            while (j < k) {
+              let sum = nums[i] + nums[j] + nums[k];
+              if (sum === 0) {
+                result.push([nums[i], nums[j], nums[k]]);
+                while (nums[j] === nums[j + 1]) j++;
+                while (nums[k] === nums[k - 1]) k--;
+                j++;
+                k--;
+              } else if (sum < 0) {
+                j++;
+              } else {
+                k--;
+              }
+            }
+          }
+          return result;
+        }
+
+        // Use the functions and output the results
+        document.getElementById('output1').innerHTML = `
+            <p>sum(1, 2) = ${sum(1, 2)}</p>
+            <p>lengthOfString("hello") = ${lengthOfString("hello")}</p>
+            <p>doubleElements([1, 2, 3]) = ${doubleElements([1, 2, 3])}</p>
+        `;
+        document.getElementById('output2').innerHTML = `
+            <p>sortByName([{name: "John"}, {name: "Jane"}]) = ${JSON.stringify(sortByName([{name: "John"}, {name: "Jane"}]))}</p>
+            <p>isPowerOfTwo(4) = ${isPowerOfTwo(4)}</p>
+            <p>isPalindromeNumber(121) = ${isPalindromeNumber(121)}</p>
+        `;
+        document.getElementById('output3').innerHTML = `
+            <p>removeDuplicates([1, 2, 2, 3]) = ${removeDuplicates([1, 2, 2, 3])}</p>
+            <p>sortByAge([{age: 30}, {age: 20}]) = ${JSON.stringify(sortByAge([{age: 30}, {age: 20}]))}</p>
+            <p>pairsThatSumToTen([1, 2, 3, 7]) = ${JSON.stringify(pairsThatSumToTen([1, 2, 3, 7]))}</p>
+        `;
+        document.getElementById('output4').innerHTML = `
+            <p>removeNestedObjects({a: 1, b: {c: 2}}) = ${JSON.stringify(removeNestedObjects({a: 1, b: {c: 2}}))}</p>
+            <p>evaluateExpression("3 + 5 * 2") = ${evaluateExpression("3 + 5 * 2")}</p>
+            <p>threeSum([-1, 0, 1, 2, -1, -4]) = ${JSON.stringify(threeSum([-1, 0, 1, 2, -1, -4]))}</p>
+        `;
+    </script>
+</body>
+</html>
